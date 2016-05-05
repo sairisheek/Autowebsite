@@ -5,7 +5,7 @@ var router = express.Router();
 var text;
 
 var port = process.env.PORT || 8080;
-console.log(__dirname);
+console.log(process.env.PWD);
 console.log("Here is  dburl: "+process.env.DATABASE_URL);
 var conString = process.env.DATABASE_URL;
 
@@ -17,7 +17,7 @@ router.use(function (req,res,next) {
 
 
 router.get("/login",function(req,res){
-  res.sendFile(__dirname+"/resources/index.html");
+  res.sendFile(process.env.PWD+"/resources/index.html");
 });
 
 app.get('/', function(req, res){
