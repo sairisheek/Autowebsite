@@ -20,6 +20,8 @@ router.get("/login",function(req,res){
   res.sendFile(process.env.PWD+"/resources/index.html");
 });
 
+app.use("/",router);
+
 app.get('/', function(req, res){
 	var client = new pg.Client(conString);
 	client.on('drain', client.end.bind(client));
