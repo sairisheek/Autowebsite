@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var pg = require('pg');
 var router = express.Router();
-
+vat text;
 
 var port = process.env.PORT || 8080;
 
@@ -24,7 +24,7 @@ app.get('/', function(req, res){
 	client.connect();
 	var query = client.query("SELECT * FROM master_table");
 	query.on('row', function(row){
-		var text = row;
+		 text = row;
 	})
 
 
