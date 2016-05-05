@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var pg = require('pg');
 var router = express.Router();
-vat text;
+var text;
 
 var port = process.env.PORT || 8080;
 
