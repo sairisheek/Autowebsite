@@ -15,7 +15,7 @@ router.use(function (req,res,next) {
 });
 
 router.get("/login",function(req,res){
-  res.sendFile("resources/index.html");
+  res.sendFile(__dirname+"/resources/index.html");
 });
 
 app.get('/', function(req, res){
