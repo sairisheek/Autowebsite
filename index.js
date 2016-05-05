@@ -21,7 +21,9 @@ router.get("/login",function(req,res){
 });
 
 app.use("/",router);
-
+app.use("/css", express.static(__dirname + '/resources/css'));
+app.use("/fonts", express.static(__dirname + '/resources/fonts'));
+app.use("/js", express.static(__dirname + '/resources/js'));
 app.get('/', function(req, res){
 	var client = new pg.Client(conString);
 	client.on('drain', client.end.bind(client));
