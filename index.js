@@ -77,9 +77,7 @@ app.get('/', function(req, res){
 	var query = client.query("SELECT * FROM master_table");
 	query.on('row', function(row){
 		 text = row;
-	})
-
-
+	});
 	res.send(text);
 });
 
