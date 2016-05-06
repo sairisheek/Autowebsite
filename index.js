@@ -32,8 +32,8 @@ app.get("/login",function(req,res){
 
 //routing for POST /login
 app.post("/login",function(req,res){
-	console.log(res.body.inputEmail);
-	console.log(res.body.inputPassword);
+	console.log(req.body.inputEmail);
+	console.log(req.body.inputPassword);
 });
 
 //app.use("/",router);
