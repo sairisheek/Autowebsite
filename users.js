@@ -10,8 +10,6 @@ function User(){
     this.c_id = 0;
     this.username = "";
     this.password= ""; //need to declare the things that i want to be remembered for each user in the database
-
-      
 }
 
 User.findOne = function(username, callback){
@@ -52,6 +50,7 @@ User.findOne = function(username, callback){
 
 
     });
+}
 
 User.findById = function(id, callback){
     console.log("we are in findbyid");
