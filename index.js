@@ -25,7 +25,7 @@ var conString = process.env.DATABASE_URL;
 });
 */
 
-require('passport')(passport); // pass passport for configuration
+require(__dirname+'/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
