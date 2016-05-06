@@ -66,7 +66,7 @@ app.use("/js", express.static(__dirname + '/resources/js'));
 //routing for /home
 app.get('/home',isLoggedin, function(req,res){
 	res.sendFile(--__dirname+'/resources/search.html');
-})
+});
 
 
 // routing for root
