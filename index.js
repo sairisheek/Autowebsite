@@ -18,9 +18,7 @@ var conString = process.env.DATABASE_URL;
   next();
 });
 */
-client.on("error", function (err) {
-console.log("error event - " + client.host + ":" + client.port + " - " + err);
-});
+
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
