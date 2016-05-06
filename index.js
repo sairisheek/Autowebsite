@@ -4,6 +4,8 @@ var express = require('express');
 var app = express();
 var pg = require('pg');
 var router = express.Router();
+
+var bodyParser = require('body-parser');
 var text;
 
 var port = process.env.PORT || 8080;
@@ -17,20 +19,34 @@ var conString = process.env.DATABASE_URL;
 });
 */
 
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
 
+//routing for GET /login
 app.get("/login",function(req,res){
   res.sendFile(process.env.PWD+"/resources/index.html");
+}); 
+
+//routing for POST /login
+app.post("login",function(req,res){
+	console.log(res.body.inputEmail);
+	console.log(res.body.inputPassword);
 });
 
-
-
 //app.use("/",router);
+// loading static files
 app.use("/css", express.static(__dirname + '/resources/css'));
 app.use("/fonts", express.static(__dirname + '/resources/fonts'));
 app.use("/js", express.static(__dirname + '/resources/js'));
+
+// routing for root
 app.get('/', function(req, res){
 	var client = new pg.Client(conString);
-	client.on('drain', client.end.bind(client));
+	client.on('drain', client.end.bind(client)); //after queries have completed, close the pool
 	client.connect();
 	var query = client.query("SELECT * FROM master_table");
 	query.on('row', function(row){
