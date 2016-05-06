@@ -1,3 +1,5 @@
+
+//require statements
 var express = require('express');
 var app = express();
 var pg = require('pg');
@@ -9,18 +11,20 @@ console.log(process.env.PWD);
 console.log("Here is  dburl: "+process.env.DATABASE_URL);
 var conString = process.env.DATABASE_URL;
 
-router.use(function (req,res,next) {
+/*router.use(function (req,res,next) {
   console.log("/" + req.method);
   next();
 });
+*/
 
 
-
-router.get("/login",function(req,res){
+app.get("/login",function(req,res){
   res.sendFile(process.env.PWD+"/resources/index.html");
 });
 
-app.use("/",router);
+
+
+//app.use("/",router);
 app.use("/css", express.static(__dirname + '/resources/css'));
 app.use("/fonts", express.static(__dirname + '/resources/fonts'));
 app.use("/js", express.static(__dirname + '/resources/js'));
