@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 //routing for GET /login
 app.get("/login",function(req,res){
-  res.render(process.env.PWD+"/resources/index.html",{ message: req.flash('loginMessage') }
+  res.render( process.env.PWD+"/resources/index.html", { 'message': req.flash('loginMessage')}
 }); 
 
 //routing for POST /login
