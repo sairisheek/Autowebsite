@@ -25,7 +25,7 @@ module.exports = function(passport){
             done(err, user);
         });
     });
-}
+
 
 
   // =========================================================================
@@ -61,3 +61,4 @@ module.exports = function(passport){
             });
 
         }));
+};
