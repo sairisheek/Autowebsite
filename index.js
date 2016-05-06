@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var pg = require('pg');
 var router = express.Router();
-var passport = require(__dirname+'passport');
+var passport = require(__dirname+'/passport');
 var flash    = require('connect-flash');
 
 var morgan       = require('morgan');

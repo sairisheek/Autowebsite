@@ -3,7 +3,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var pg = require('pg');
 var client = new pg.Client(process.env.DATABASE_URL);
 
-var User = require(__dirname+'users')
+var User = require(__dirname+'/users')
 
 module.exports = function(passport){
 	// =========================================================================
