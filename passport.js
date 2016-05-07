@@ -7,7 +7,7 @@ var User = require(__dirname+'/users')
 
 module.exports = function(passport){
 	// =========================================================================
-    // passport session setup ==================================================
+     // passport session setup ==================================================
     // =========================================================================
     // required for persistent login sessions
     // passport needs ability to serialize and unserialize users out of session
