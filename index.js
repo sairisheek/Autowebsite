@@ -34,7 +34,7 @@ app.use("/js", express.static(__dirname + '/resources/js'));
 
 //routing for /home
 app.get('/home', function(req,res){
-	res.sendFile(--__dirname+'/resources/search.html');
+	res.sendFile(__dirname+'/resources/search.html');
 });
 
 
