@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var pg = require('pg');
 var router = express.Router();
-var passport = require(__dirname+'/passport');
+var passport = require('passport');
 var flash    = require('connect-flash');
 
 var morgan       = require('morgan');
@@ -25,7 +25,7 @@ var conString = process.env.DATABASE_URL;
 });
 */
 
-require(__dirname+'/passport')(passport); // pass passport for configuration
+ // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-
+require(__dirname+'/passport')(passport);
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
