@@ -33,7 +33,7 @@ app.use("/fonts", express.static(__dirname + '/resources/fonts'));
 app.use("/js", express.static(__dirname + '/resources/js'));
 
 //routing for /home
-app.get('/home',isLoggedIn, function(req,res){
+app.get('/home', function(req,res){
 	res.sendFile(--__dirname+'/resources/search.html');
 });
 
