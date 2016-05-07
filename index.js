@@ -47,7 +47,7 @@ app.use(express.static(__dirname + '/resources'));
 
 //routing for GET /login
 app.get("/login",function(req,res) {
-  res.render( process.env.PWD+"/resources/index.html", { 'message': req.flash('loginMessage')}  )
+  res.sendFile( process.env.PWD+"/resources/index.html" )
 }); 
 
 //routing for POST /login
