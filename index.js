@@ -43,7 +43,7 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
-app.use(express.static(path.join(__dirname, 'resources')));
+app.use(express.static(__dirname + '/resources'));
 
 //routing for GET /login
 app.get("/login",function(req,res) {
