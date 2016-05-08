@@ -22,6 +22,8 @@ module.exports = function(sequelize, DataTypes) {
 		timestamps: false,
 		instanceMethods: {			
 			validPassword : function(password) {
+				console.log(password);
+				console.log(localpassword);
 				return password == this.localpassword
 			}
 		},
