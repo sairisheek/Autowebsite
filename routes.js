@@ -3,7 +3,7 @@ module.exports = function(app) {
 
 //routing for GET /login
 app.get("/login",function(req,res) {
-  res.render('login.ejs', { message: req.flash('loginMessage') });
+  res.render('index.ejs', { message: req.flash('loginMessage') });
 }); 
 
 
