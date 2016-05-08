@@ -55,8 +55,8 @@ function isLoggedIn(req, res, next) {
 
 function regAuth(req, res, next) {
 	if(req.body.regstring == "RandomassString"){
-		return next()
+		return next();
 	}
 
-	req.flash('signUpMessage','Wrong Registration Code')
+	req.flash('signUpMessage','Wrong Registration Code');
 }
