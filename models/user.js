@@ -7,7 +7,7 @@
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('user', {
 		customer_id		: {
- 	type: Sequelize.INTEGER,
+ 	type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true // Automatically gets converted to SERIAL for postgres
   		},
