@@ -1,6 +1,6 @@
-module.exports = function(app,pg) {
+module.exports = function(app) {
 
-
+var pg = require('pg');
 //routing for GET /login
 app.get("/login",function(req,res) {
   res.render('index.ejs', { message: req.flash('loginMessage') });
