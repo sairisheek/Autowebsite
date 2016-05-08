@@ -7,7 +7,11 @@ app.get("/login",function(req,res) {
 }); 
 
 
-
+//routing for /register
+app.get('/register',function(req,res){
+	if(isLoggedIn){req.logout();}
+	res.render('register.ejs',{ message: req.flash('loginMessage') });
+});
 
 
 //routing for /home
