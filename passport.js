@@ -60,6 +60,42 @@ module.exports = function(passport) {
 				});				
 	}));
 
+    // =========================================================================
+    // LOCAL SIGNUP ============================================================
+    // =========================================================================
+    passport.use('local-signup', new LocalStrategy({
+        // by default, local strategy uses username and password, we will override with email
+        usernameField : 'username',
+        passwordField : 'password',
+        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+    },
+    function(req, username, password, done) {        
+		//  Whether we're signing up or connecting an account, we'll need
+		//  to know if the email address is in use.
+		
+		User.findOne({ where: { username: username }})
+			.then(function(existingUser) {
+			
+				// check to see if there's already a user with that email
+				if (existingUser) 
+					return done(null, false, req.flash('signUpMessage', 'That username is already taken.'));
+
+				//  We're not logged in, so we're creating a brand new user.
+				else {
+					if(req.user){
+						req.logout();
+					}
+
+					// create the user
+					var newUser = User.build ({username: email, password: password});	
+					newUser.save().then(function() {done (null, newUser);}).catch(function(err) { done(null, false, req.flash('signUpMessage', err));});
+				}
+			})
+			.catch(function (e) {
+				done(null, false, req.flash('signUpMessage',e.name + " " + e.message));				
+			})
+
+    }));
     
 
    
