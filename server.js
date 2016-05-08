@@ -2,7 +2,7 @@
 //require statements
 var express = require('express');
 var app = express();
-var pg = require('pg');
+var passport = require('passport');
 var flash    = require('connect-flash'); // store and retrieve messages in session store
 
 var morgan       = require('morgan'); // loggervar bodyParser = require('body-parser');
