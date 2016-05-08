@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
 	{
 		tableName: 'authentication_table',
 		freezeTableName : true,
+		timestamps: false,
 		instanceMethods: {			
 			validPassword : function(password) {
 				return password == this.localpassword

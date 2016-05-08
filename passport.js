@@ -45,7 +45,7 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
     function(req, username, password, done) {		
-			User.findOne({ where: { localusername: username }})
+			User.findOne({ where: { username: username }})
 				.then(function(user) {
 					if (!user) {
 						done(null, false, req.flash('loginMessage', 'Unknown user'));
