@@ -1,5 +1,5 @@
 module.exports = function(app) {
-
+var text;
 var pg = require('pg');
 //routing for GET /login
 app.get("/login",function(req,res) {
