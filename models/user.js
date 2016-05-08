@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
  	type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true // Automatically gets converted to SERIAL for postgres
-  		}
+  		},
 		username		: DataTypes.STRING,
 		password		: DataTypes.STRING,
 		freezeTableName : true,
