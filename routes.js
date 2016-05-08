@@ -57,11 +57,10 @@ function regauth(req,res,next){
 			failureRedirect : '/register', // redirect back to the signup page if there is an error
 			failureFlash : true // allow flash messages
 		});
-	
+	}
 	else{req.flash('signUpMessage','Wrong Registration Code');
 		
 		
 		}	
 	
 	}
-}
