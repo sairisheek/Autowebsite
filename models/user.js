@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 		omitNull: true,
 		tableName: 'authentication_table',
 		freezeTableName : true,
-		timestamps: false,
+		updatedAt: false,
 		instanceMethods: {			
 			validPassword : function(password) {
 		
