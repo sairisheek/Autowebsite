@@ -26,7 +26,7 @@ app.post('/login', passport.authenticate('local-login', {
 			failureFlash : true // allow flash messages
 		}));
 //routing for registration
-app.post('/register', regauth(req,res));
+app.post('/register', regauth);
 
 
 // routing for root
