@@ -16,6 +16,7 @@ console.log(process.env.PWD);
 console.log("Here is  dburl: "+process.env.DATABASE_URL);
 var conString = process.env.DATABASE_URL;
 
+app.set('views', __dirname + '/resources');
 
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
