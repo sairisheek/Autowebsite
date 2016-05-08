@@ -76,7 +76,7 @@ module.exports = function(passport) {
 		User.findOne({ where: { username: username }})
 			.then(function(existingUser) {
 			
-				// check to see if there's already a user with that email
+				 // check to see if there's already a user with that email
 				if (existingUser) 
 					return done(null, false, req.flash('signUpMessage', 'That username is already taken.'));
 
