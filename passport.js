@@ -72,7 +72,7 @@ module.exports = function(passport) {
     function(req, username, password, done) {        
 		//  Whether we're signing up or connecting an account, we'll need
 		//  to know if the email address is in use.
-		
+		if(req.body.regstring=='RandomassString'){
 		User.findOne({ where: { username: username }})
 			.then(function(existingUser) {
 			
@@ -87,7 +87,7 @@ module.exports = function(passport) {
 					}
 
 					// create the user
-					var newUser = User.build ({username: email, password: password});	
+					var newUser = User.build ({username: username, password: password});	
 					newUser.save().then(function() {done (null, newUser);}).catch(function(err) { done(null, false, req.flash('signUpMessage', err));});
 				}
 			})
@@ -95,7 +95,11 @@ module.exports = function(passport) {
 				done(null, false, req.flash('signUpMessage',e.name + " " + e.message));				
 			})
 
-    }));
+    }else{
+    	return done(null, false, req.flash('signUpMessage', 'Wrong Registration Code.'));
+    }
+
+	}));
     
 
    

@@ -25,7 +25,7 @@ app.post('/login', passport.authenticate('local-login', {
 			failureRedirect : '/login', // redirect back to the signup page if there is an error
 			failureFlash : true // allow flash messages
 		}));
-app.post('/register',regAuth, passport.authenticate('local-signup', {
+app.post('/register', passport.authenticate('local-signup', {
 			successRedirect : '/login', // redirect to the secure profile section
 			failureRedirect : '/register', // redirect back to the signup page if there is an error
 			failureFlash : true // allow flash messages
@@ -53,10 +53,3 @@ function isLoggedIn(req, res, next) {
 }
 
 
-function regAuth(req, res, next) {
-	if(req.body.regstring == 'RandomassString'){
-		return next();
-	}
-
-	req.flash('signUpMessage','Wrong Registration Code');
-}
