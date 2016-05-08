@@ -18,7 +18,7 @@ app.get('/home', function(req,res){
 
 // routing for root
 app.get('/', function(req, res){
-	var client = new pg.Client(conString);
+	var client = new pg.Client(process.env.DATABASE_URL);
 	client.on('drain', client.end.bind(client)); //after queries have completed, close the pool
 	client.connect();
 	var query = client.query("SELECT * FROM master_table");
