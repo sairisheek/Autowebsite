@@ -13,11 +13,12 @@ module.exports = function(sequelize, DataTypes) {
   		},
 		username		: DataTypes.STRING,
 		password		: DataTypes.STRING,
-		freezeTableName : true,
-		tableName       : 'authentication_table'
+		
+		
 	}, 
 	{
-		
+		tableName: 'authentication_table',
+		freezeTableName : true,
 		instanceMethods: {			
 			validPassword : function(password) {
 				return password == this.localpassword
