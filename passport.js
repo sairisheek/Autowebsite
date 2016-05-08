@@ -23,12 +23,12 @@ module.exports = function(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
-        done(null, user.customer_id);
+        done(null, user.user_id);
     });
 
     // used to deserialize the user
-    passport.deserializeUser(function(customer_id, done) {
-        User.findById(customer_id).then(function(user){
+    passport.deserializeUser(function(user_id, done) {
+        User.findById(user_id).then(function(user){
 			done(null, user);
 		}).catch(function(e){
 			done(e, false);
@@ -87,7 +87,7 @@ module.exports = function(passport) {
 					}
 
 					// create the user
-					var newUser = User.build ({username: username, password: password, customer_id: null});	
+					var newUser = User.build ({username: username, password: password});	
 					newUser.save().then(function() {done (null, newUser);}).catch(function(err) { done(null, false, req.flash('signUpMessage', err));});
 				}
 			})
