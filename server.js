@@ -5,10 +5,12 @@ var app = express();
 var pg = require('pg');
 var flash    = require('connect-flash'); // store and retrieve messages in session store
 
-var morgan       = require('morgan'); // logger
-var bodyParser = require('body-parser');
-var text;
+var morgan       = require('morgan'); // loggervar bodyParser = require('body-parser');
 
+var text;
+var cookieParser = require('cookie-parser'); // parse cookies
+var bodyParser   = require('body-parser'); // parse posts
+var session      = require('express-session'); // session middleware
 var port = process.env.PORT || 8080;
 console.log(process.env.PWD);
 console.log("Here is  dburl: "+process.env.DATABASE_URL);
@@ -20,7 +22,7 @@ app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
-
+app.use(session({ secret: 'badbitchcontestyouinfirstplace' })); 
 
 app.use(morgan('dev'));
 app.use(flash());
