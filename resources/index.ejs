@@ -25,11 +25,13 @@
     <div class="container">
 
       <form class="form-signin" role="form" method="post" action="/login">
-        <label for="username" class="sr-only">Username</label>
-        <input type="text" name="username" id="username" class="form-control" placeholder="Username:" required autofocus>
+        <label for="username" class="sr-only">Username:</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
         <label for="password" class="sr-only">Password:</label>
         <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
         <input type="submit" name="inputButton" id="inputButton" value="Log In" class="btn btn-success"></input>
+        <button type="button" onclick="window.location = '/register';" class="btn btn-primary">Register</button>
+
       </form>
 
     </div> <!-- /container -->
