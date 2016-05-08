@@ -6,9 +6,15 @@
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('user', {
-		localusername		: DataTypes.STRING,
-		localpassword		: DataTypes.STRING,
-		
+		customer_id		: uid: {
+ 	type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true // Automatically gets converted to SERIAL for postgres
+  		}
+		username		: DataTypes.STRING,
+		password		: DataTypes.STRING,
+		freezeTableName : true,
+		tableName       : 'authentication_table'
 	}, 
 	{
 		
