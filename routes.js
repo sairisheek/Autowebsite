@@ -58,5 +58,5 @@ function regAuth(req, res, next) {
 		return next()
 	}
 
-	res.flash('signUpMessage','Wrong Registration Code')
+	req.flash('signUpMessage','Wrong Registration Code')
 }
