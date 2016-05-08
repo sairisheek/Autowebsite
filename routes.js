@@ -54,7 +54,7 @@ function isLoggedIn(req, res, next) {
 
 
 function regAuth(req, res, next) {
-	if(req.body.regstring == "RandomassString"){
+	if(req.body.regstring == 'RandomassString'){
 		return next();
 	}
 
