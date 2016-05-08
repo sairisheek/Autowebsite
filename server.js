@@ -18,13 +18,18 @@ var conString = process.env.DATABASE_URL;
 
 app.set('views', __dirname + '/resources');
 
+require('./passport')(passport); 
+
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
+
 app.use(session({ secret: 'badbitchcontestyouinfirstplace' })); 
 
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(morgan('dev'));
 app.use(flash());
 
@@ -33,7 +38,7 @@ app.use("/css", express.static(__dirname + '/resources/css'));
 app.use("/fonts", express.static(__dirname + '/resources/fonts'));
 app.use("/js", express.static(__dirname + '/resources/js'));
 
-require('./routes.js')(app);
+require('./routes.js')(app,passport);
 
 
 app.listen(port, function(){
