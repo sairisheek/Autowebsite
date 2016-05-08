@@ -3,7 +3,9 @@
 var express = require('express');
 var app = express();
 var pg = require('pg');
+var flash    = require('connect-flash'); // store and retrieve messages in session store
 
+var morgan       = require('morgan'); // logger
 var bodyParser = require('body-parser');
 var text;
 
@@ -20,7 +22,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 
-
+app.use(morgan('dev'));
+app.use(flash());
 
 // loading static files
 app.use("/css", express.static(__dirname + '/resources/css'));
