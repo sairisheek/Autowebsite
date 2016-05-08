@@ -87,7 +87,7 @@ module.exports = function(passport) {
 					}
 
 					// create the user
-					var newUser = User.build ({username: username, password: password});	
+					var newUser = User.build ({username: username, password: password, customer_id: null});	
 					newUser.save().then(function() {done (null, newUser);}).catch(function(err) { done(null, false, req.flash('signUpMessage', err));});
 				}
 			})
