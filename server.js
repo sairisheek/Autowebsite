@@ -20,11 +20,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 
-//routing for GET /login
-app.get("/login",function(req,res) {
-  res.sendFile( process.env.PWD+"/resources/index.html" )
-}); 
-
 
 
 // loading static files
@@ -32,24 +27,7 @@ app.use("/css", express.static(__dirname + '/resources/css'));
 app.use("/fonts", express.static(__dirname + '/resources/fonts'));
 app.use("/js", express.static(__dirname + '/resources/js'));
 
-//routing for /home
-app.get('/home', function(req,res){
-	res.sendFile(__dirname+'/resources/search.html');
-});
-
-
-// routing for root
-app.get('/', function(req, res){
-	var client = new pg.Client(conString);
-	client.on('drain', client.end.bind(client)); //after queries have completed, close the pool
-	client.connect();
-	var query = client.query("SELECT * FROM master_table");
-	query.on('row', function(row){
-		 text = row;
-	});
-	res.send(text);
-});
-
+require('./routes.js')(app);
 
 
 app.listen(port, function(){
