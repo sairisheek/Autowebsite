@@ -3,13 +3,13 @@ var LocalStrategy    = require('passport-local').Strategy;
 
 
 
-var User       = sequelize.import('./models/user');
-User.sync();
+
 
 
 
 module.exports = function(passport,sequelize) {
-	
+	var User       = sequelize.import('./models/user');
+User.sync();
 	
 
     // =========================================================================
