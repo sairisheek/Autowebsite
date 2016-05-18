@@ -36,6 +36,7 @@ app.post('/add',isLoggedIn, function(req,res){
         password: req.body.lname,
     	vin_data: req.body.VIN 
     };
+	console.log(newUser);
 	pglink.createCustomer(sequelize,newUser);
 });
 
