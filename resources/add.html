@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Search</title>
+    <title>Add</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -63,29 +63,34 @@
     </nav>
 
 
-    <div class="container">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <form  role="form" method="post" action="/add">
           <div class="panel-body">
             <h3>Add user</h3>
             <p>Describe the feature here.</p>
             <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Name">
+                <div class="col-md-4 ">
+                  <input type="text" class="form-control" placeholder="First Name">
                 </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="VIN">
+                <div class="col-md-4">
+                  <input type="text" class="form-control" placeholder="Last Name">
                 </div>
-                <br><br>
+                <div class="col-md-4">
+                  <input type="text" name = "VIN" class="form-control" placeholder="VIN">
+                </div>
                 <p>
                   <div class="col-md-1 col-md-offset-5">
-                    <a class="btn btn-lg btn-success" href="results.html" role="button">Add</a>
+                    <input type="submit" name="inputButton" id="inputButton" value="Add" class="btn btn-success"></input>
                   </div>
                 </p>
+              </div>
             </div>
             <p>
             </p>
           </div>
+        </form>
         </div>
       </div>
 

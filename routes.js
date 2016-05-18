@@ -19,6 +19,11 @@ app.get('/home',isLoggedIn, function(req,res){
 	res.sendFile(__dirname+'/resources/search.html');
 });
 
+//routing for /home
+app.get('/add',isLoggedIn, function(req,res){
+	res.sendFile(__dirname+'/resources/add.html');
+});
+
 //routing for auth
 app.post('/login', passport.authenticate('local-login', {
 			successRedirect : '/home', // redirect to the secure profile section
