@@ -1,6 +1,10 @@
-module.exports = function(app,passport) {
+module.exports = function(app,passport,sequelize) {
+
 var text;
 var pg = require('pg');
+var pglink = require('./pglinks.js');
+
+
 //routing for GET /login
 app.get("/login",function(req,res) {
   res.render('index.ejs', { message: req.flash('loginMessage') });
@@ -23,6 +27,18 @@ app.get('/home',isLoggedIn, function(req,res){
 app.get('/add',isLoggedIn, function(req,res){
 	res.sendFile(__dirname+'/resources/add.html');
 });
+
+
+//routing for post /add
+app.post('/add',isLoggedIn, function(req,res){
+	var newUser={
+        username: req.body.username,
+        password: req.body.password,
+    	vin_data: req.body.VIN 
+    };
+	pglink.createCustomer(sequelize,newUser);
+});
+
 
 //routing for auth
 app.post('/login', passport.authenticate('local-login', {

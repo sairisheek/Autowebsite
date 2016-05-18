@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var flash    = require('connect-flash'); // store and retrieve messages in session store
-
+var sequelize = new Sequelize(process.env.DATABASE_URL);
 var morgan       = require('morgan'); // loggervar bodyParser = require('body-parser');
 
 var text;
@@ -18,7 +18,7 @@ var conString = process.env.DATABASE_URL;
 
 app.set('views', __dirname + '/resources');
 
-require('./passport')(passport); 
+require('./passport')(passport,sequelize); 
 
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -38,7 +38,7 @@ app.use("/css", express.static(__dirname + '/resources/css'));
 app.use("/fonts", express.static(__dirname + '/resources/fonts'));
 app.use("/js", express.static(__dirname + '/resources/js'));
 
-require('./routes.js')(app,passport);
+require('./routes.js')(app,passport,sequelize);
 
 
 app.listen(port, function(){
