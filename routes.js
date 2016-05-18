@@ -32,8 +32,8 @@ app.get('/add',isLoggedIn, function(req,res){
 //routing for post /add
 app.post('/add',isLoggedIn, function(req,res){
 	var newUser={
-        username: req.body.username,
-        password: req.body.password,
+        username: req.body.fname,
+        password: req.body.lname,
     	vin_data: req.body.VIN 
     };
 	pglink.createCustomer(sequelize,newUser);
