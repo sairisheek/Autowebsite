@@ -25,7 +25,7 @@ app.get('/home',isLoggedIn, function(req,res){
 
 //routing for /home
 app.get('/add',isLoggedIn, function(req,res){
-	res.render('addr.ejs',{ message: req.flash('addMessage') });
+	res.render('add.ejs',{ message: req.flash('addMessage') });
 });
 
 
