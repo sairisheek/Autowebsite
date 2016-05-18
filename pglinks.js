@@ -1,7 +1,7 @@
 exports.createCustomer = function(sequelize,newUser){ 
-sequelize.sync().success(function (err){
+sequelize.sync().then(function (err){
 	var Customer = sequelize.import('./models/customer.js');
-	Customer.create(newUser).success(function () {
+	Customer.create(newUser).then(function () {
         console.log('Customer: '+ newUser);
     
     	});
