@@ -38,7 +38,15 @@ app.post('/add',isLoggedIn, function(req,res){
     	vin_data: req.body.VIN 
     };
 	console.log(newUser);
-	pglink.createCustomer(sequelize,newUser,req);
+	pglink.createCustomer(sequelize,newUser,function(flag,err){
+		if(flag){req.flash('addMessage','User '+newUser.fname+' ' + newUser.lname+' created with VIN ' + newUser.vin_data+'!');
+    	}
+	else{
+    
+    	req.flash('addMessage',err);}
+
+
+	});
 });
 
 

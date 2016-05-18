@@ -1,11 +1,8 @@
-exports.createCustomer = function(sequelize,newUser,req){ 
+exports.createCustomer = function(sequelize,newUser,done){ 
 
 	var Customer = sequelize.import('./models/customer.js');
 	Customer.sync();
 	var customer = Customer.build(newUser);
-	customer.save().then(function () {
-        req.flash('addMessage','User '+newUser.fname+' ' + newUser.lname+' created with VIN ' + newUser.vin_data+'!');
-    
-    	}).catch(function(err){req.flash('addMessage',err);});
+	customer.save().then(function(){done(true);}).catch(function(error){done(false,error);});
 	
 }

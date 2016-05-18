@@ -65,9 +65,7 @@
 
   <div class="container">
   
- <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-    <% } %>
+ 
 
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-default">
@@ -75,6 +73,10 @@
           <div class="panel-body">
             <h3>Add user</h3>
             <p>Describe the feature here.</p>
+            <br></br>
+               <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
             <div class="row">
                 <div class="col-md-4 ">
                   <input type="text" name = "first_name" class="form-control" placeholder="First Name">
