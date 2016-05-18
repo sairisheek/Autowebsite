@@ -25,19 +25,20 @@ app.get('/home',isLoggedIn, function(req,res){
 
 //routing for /home
 app.get('/add',isLoggedIn, function(req,res){
-	res.sendFile(__dirname+'/resources/add.html');
+	res.render('addr.ejs',{ message: req.flash('addMessage') });
 });
 
 
 //routing for post /add
 app.post('/add',isLoggedIn, function(req,res){
+	res.render('addr.ejs',{ message: req.flash('addMessage') });
 	var newUser={
         fname: req.body.first_name,
         lname: req.body.last_name,
     	vin_data: req.body.VIN 
     };
 	console.log(newUser);
-	pglink.createCustomer(sequelize,newUser);
+	pglink.createCustomer(sequelize,newUser,req);
 });
 
 
