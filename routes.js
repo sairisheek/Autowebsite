@@ -31,7 +31,7 @@ app.get('/add',isLoggedIn, function(req,res){
 
 //routing for post /add
 app.post('/add',isLoggedIn, function(req,res){
-	res.render('addr.ejs',{ message: req.flash('addMessage') });
+	res.render('add.ejs',{ message: req.flash('addMessage') });
 	var newUser={
         fname: req.body.first_name,
         lname: req.body.last_name,
