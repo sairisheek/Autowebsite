@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var flash    = require('connect-flash'); // store and retrieve messages in session store
-var sequelize = new Sequelize(process.env.DATABASE_URL);
+
 var morgan       = require('morgan'); // loggervar bodyParser = require('body-parser');
 
 
@@ -13,7 +13,7 @@ var Sequelize = require('sequelize');
 var pg = require('pg');
 var pghstore = require('pg-hstore');
 
-
+var sequelize = new Sequelize(process.env.DATABASE_URL);
 
 var text;
 var cookieParser = require('cookie-parser'); // parse cookies
