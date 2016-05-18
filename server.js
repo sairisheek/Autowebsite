@@ -7,6 +7,14 @@ var flash    = require('connect-flash'); // store and retrieve messages in sessi
 var sequelize = new Sequelize(process.env.DATABASE_URL);
 var morgan       = require('morgan'); // loggervar bodyParser = require('body-parser');
 
+
+
+var Sequelize = require('sequelize');
+var pg = require('pg');
+var pghstore = require('pg-hstore');
+
+
+
 var text;
 var cookieParser = require('cookie-parser'); // parse cookies
 var bodyParser   = require('body-parser'); // parse posts
