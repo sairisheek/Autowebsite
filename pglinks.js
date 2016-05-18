@@ -1,5 +1,5 @@
 exports.createCustomer = function(sequelize,newUser){ 
-sequelize.sync().then(function (err){
+sequelize.sync({force: true}).then(function (err){
 	var Customer = sequelize.import('./models/customer.js');
 	var customer = Customer.build(newUser);
 	customer.save().then(function () {
