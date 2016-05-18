@@ -32,8 +32,8 @@ app.get('/add',isLoggedIn, function(req,res){
 //routing for post /add
 app.post('/add',isLoggedIn, function(req,res){
 	var newUser={
-        fname: req.body.fname,
-        lname: req.body.lname,
+        fname: req.body.first_name,
+        lname: req.body.last_name,
     	vin_data: req.body.VIN 
     };
 	console.log(newUser);
