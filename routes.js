@@ -32,11 +32,11 @@ app.get('/add',isLoggedIn, function(req,res){
 //routing for post /add
 app.post('/add',isLoggedIn, function(req,res){
 	var newUser={
-        username: req.body.fname,
-        password: req.body.lname,
+        fname: req.body.fname,
+        lname: req.body.lname,
     	vin_data: req.body.VIN 
     };
-	console.log(newUser);
+	
 	pglink.createCustomer(sequelize,newUser);
 });
 
