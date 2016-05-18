@@ -1,17 +1,14 @@
 // load all the things we need
 var LocalStrategy    = require('passport-local').Strategy;
 
-var Sequelize = require('sequelize');
-var pg = require('pg');
-var pghstore = require('pg-hstore');
-var sequelize = new Sequelize(process.env.DATABASE_URL);
+
 
 var User       = sequelize.import('./models/user');
 User.sync();
 
 
 
-module.exports = function(passport) {
+module.exports = function(passport,sequelize) {
 	
 	
 

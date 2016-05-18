@@ -5,8 +5,9 @@ module.exports = function(sequelize, DataTypes) {
     primaryKey: true,
     autoIncrement: true // Automatically gets converted to SERIAL for postgres
   		},
-		customer_name		: DataTypes.STRING,
-		vin_data		: DataTypes.TEXT,
+		fname		: DataTypes.STRING,
+		lname       : DataTypes.STRING,
+		vin_data	: DataTypes.TEXT,
 		
 		
 	}, 
