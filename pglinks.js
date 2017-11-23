@@ -5,4 +5,3 @@ exports.createCustomer = function(sequelize,newUser,done){
 	var customer = Customer.build(newUser);
 	customer.save().then(function(){done(true);}).catch(function(error){done(false,error);});
 	
-}
